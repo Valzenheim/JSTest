@@ -1,0 +1,19 @@
+#firstInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#formList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.but{
+    text-align: center;
+    width: 50px;
+}
+.one{
+    width: 200px;
+}
