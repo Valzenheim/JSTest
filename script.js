@@ -1,25 +1,30 @@
 function submitHandler(){
-    let inputValue=document.forms.inputList.elements.one.value;
+    let inputArr = document.getElementsByName('one');
+    let inputValue = inputArr[+inputArr.length-1].value;
     console.log(inputValue)
+    let elem = document.createElement('input')
+    let parentElem = document.getElementById('myForm');
+    elem.setAttribute('id',inputArr.length+1);
+    elem.setAttribute('name','one')
+    elem.setAttribute('type','text')
+    parentElem.append(elem);
 
-    if(inputValue.indexOf('555', 0)>=0) {
-        inputValue=inputValue.replace('555', '---')
-        // alert(inputValue)
-        inputMaker(inputValue)
-        document.forms.inputList.reset()
+    if(inputValue.indexOf('555', 0)>=0 && +inputArr.length%2===0) {
+        inputValue = inputValue.replace('555', '---').toUpperCase();
+        alert(inputValue)
+        document.getElementById(inputArr.length + 1).value = inputValue
+        parentElem.reset()
         return false;
-    } else {
-        document.forms.inputList.reset()
-        alert('no 555')
+    } else if(inputValue.indexOf('555', 0)>=0 && !+inputArr.length%2===0) {
+        inputValue = inputValue.replace('555', '---').toLowerCase();
+        document.getElementById(inputArr.length+1).value = inputValue
+        parentElem.reset()
+        return false;
+    } else if(+inputArr.length%2===0){
+        inputValue = inputValue.toUpperCase();
+        document.getElementById(inputArr.length+1).value = inputValue
+        parentElem.reset()
         return false;
     }
-}
-function inputMaker (text){
-   let inputValue = text;
-   let elem= document.createElement('input')
-   elem.setAttribute('name','one');
-   elem.setAttribute('type','text')
-   elem.setAttribute('placeHolder', inputValue);
-   document.getElementById('myForm').appendChild(elem);
 
 }
