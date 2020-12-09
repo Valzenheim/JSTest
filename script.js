@@ -18,7 +18,7 @@ function submitHandler(){
         addValue.value = inputValue.replace('555', '---').toLowerCase()
     }else if (inputArr.length % 2 === 0) {
         addValue.value = inputValue.toUpperCase();
-    }else if(inputArr.length % 2 !== 0){
+    }else {
         addValue.value = inputValue.toLowerCase();
     }
     return false
